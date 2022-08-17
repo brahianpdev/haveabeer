@@ -12,7 +12,6 @@ class authController {
         const loginDto: LogInDto = req.body;
 
         const { cookie } = await authService.login({ ...loginDto });
-
         res.setHeader("Set-Cookie", [cookie]);
 
         return res.status(200).send('Login successful');

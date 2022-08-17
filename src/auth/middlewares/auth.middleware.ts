@@ -12,6 +12,7 @@ import enviromentConfig from "../../config/enviroment.config";
 
 
 async function authMiddleware(req: RequestWithUser, res: Response, next: NextFunction) {
+
     const cookies = req.cookies;
 
     if (cookies && cookies.Authorization) {

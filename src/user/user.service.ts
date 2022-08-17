@@ -12,12 +12,11 @@ import { toUpperCase } from '../utils/uppercase';
 import { toTrimCase } from '../utils/trim';
 
 class UserService {
-  constructor() {}
+  constructor() { }
 
   async findAll(): Promise<IUser[]> {
     try {
       const users = await userRepository.findAll();
-
       return users;
     } catch (error) {
       throw error;

@@ -11,10 +11,10 @@ class JwtService {
     async generateToken(user: any) {
         const storedToken: DataStoredInToken = { _id: user._id };
 
-        return  {
+        return {
             token: jwt.sign(storedToken, enviromentConfig.jwt.secret, { expiresIn: enviromentConfig.jwt.expireTime }),
             expiresIn: enviromentConfig.jwt.expireTime
-        } 
+        }
     }
 }
 

@@ -16,7 +16,7 @@ class UserRepository {
     }
 
     async findByEmail(email: string): Promise<IUser> {
-        return  User.findOne({ email });
+        return User.findOne({ email });
     }
 
     async findByUsername(username: string) {
@@ -24,9 +24,9 @@ class UserRepository {
     }
 
     async create(user: CreateUserDto): Promise<IUser> {
-          const createdUser = await User.create(user); 
-         
-        return createdUser.save(); 
+        const createdUser = await User.create(user);
+
+        return createdUser.save();
     }
 
     async update(id: string, user: UpdateUserDto): Promise<IUser> {

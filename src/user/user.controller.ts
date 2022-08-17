@@ -12,21 +12,20 @@ class UserController {
 
     async findAll(req: Request, res: Response) {
         try {
-            const users = userService.findAll();
-
+            const users = await userService.findAll();
             return res.status(HttpStatus.OK).send(users);
         } catch (error) {
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error.message);
         }
     }
 
     async findById(req: Request, res: Response) {
         try {
-            const user = userService.findById(req.params.id);
+            const user = await userService.findById(req.params.id);
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error.message);
         }
     }
 

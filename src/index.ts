@@ -32,6 +32,7 @@ mongoose.connect(enviromentConfig.mongo.url).then(() => {
     app.use("/", routes);
 
     app.listen(enviromentConfig.app.port, () => {
+        /* Using template literals to print the port number. */
         console.log(`🔥 Server is running at port ${enviromentConfig.app.port}`);
     });
 

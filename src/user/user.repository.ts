@@ -8,65 +8,41 @@ class UserRepository {
     constructor() { }
 
     async findAll(): Promise<IUser[]> {
-        try {
-            return await User.find();
-        } catch (error) {
-            throw error;
-        }
+        return User.find();
     }
 
     async findById(id: string): Promise<IUser> {
-        try {
-            return await User.findById(id);
-        } catch (error) {
-            throw error;
-        }
+        return User.findById(id);
     }
 
     async findByEmail(email: string): Promise<IUser> {
-        try {
-            return await User.findOne({ email });
-        } catch (error) {
-            throw error;
-        }
+        return User.findOne({ email });
+    }
+
+    async findByUsername(username: string) {
+        return User.findOne({ username });
     }
 
     async create(user: CreateUserDto): Promise<IUser> {
-        try {
-            const createdUser = await User.create(user);
+        const createdUser = await User.create(user);
 
-            return createdUser.save();
-        } catch (error) {
-            throw error;
-        }
+        return createdUser.save();
     }
 
     async update(id: string, user: UpdateUserDto): Promise<IUser> {
-        try {
-            const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
+        const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
 
-            return updatedUser.save();
-        } catch (error) {
-            throw error;
-        }
+        return updatedUser.save();
     }
 
     async updateLogin(id: string): Promise<IUser> {
-        try {
-            const updatedUser = await User.findByIdAndUpdate(id, { lastLogin: new Date() }, { new: true });
+        const updatedUser = await User.findByIdAndUpdate(id, { lastLogin: new Date() }, { new: true });
 
-            return updatedUser.save();
-        } catch (error) {
-            throw error;
-        }
+        return updatedUser.save();
     }
 
     async delete(id: string) {
-        try {
-            return await User.findByIdAndDelete(id);
-        } catch (error) {
-            throw error;
-        }
+        return User.findByIdAndDelete(id);
     }
 }
 

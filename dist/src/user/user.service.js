@@ -90,7 +90,7 @@ class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userFound = yield user_repository_1.default.findByEmail(createUserDto.email.trim());
-                //email validated
+                //email validated 
                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(userFound))
                     throw new Error('invalid email');
                 if (userFound)
